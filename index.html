@@ -305,26 +305,33 @@
 				controller.addEventListener( 'select', loadModel1);
 				// モデル2
 				controller.addEventListener( 'select', loadModel2);
+
+
+
+				// モデル1
+				// カスタムイベントを受け取って条件を再評価する
+				function model1_event_fun() {
+					if (ARButton.model1_display === 0) {
+						controller.removeEventListener('select', loadModel1);
+						// toggleButton.textContent = 'ボタン (無効)';
+						console.log('確認 0');
+					} else {
+						controller.addEventListener('select', loadModel1);
+						// toggleButton.textContent = 'ボタン (有効)';
+						console.log('確認 1');
+					}
+				}
+
+				// カスタムイベントを監視して、ARButton.q の値に応じて条件を再評価する
+				document.addEventListener('m1_event', model1_event_fun);
 				
 
-				
-				// // 有効無効ボタンによる3Dモデル表示非表示制御
-				// if (ARButton.q === 0) {
-				// 	controller.removeEventListener('select', loadModel2);
-
-				// 	// 確認用
-				// 	toggleButton.textContent = 'ボタン (無効)';
-				// 	console.log('確認 0');
-				// } else {
-				// 	controller.addEventListener('select', loadModel2);
-
-				// 	// 確認用
-				// 	toggleButton.textContent = 'ボタン (有効)';
-				// 	console.log('確認 1');
-				// }
 
 
 
+
+
+				// モデル2
 				// カスタムイベントを受け取って条件を再評価する
 				function handleARButtonQChangedEvent() {
 					if (ARButton.q === 0) {

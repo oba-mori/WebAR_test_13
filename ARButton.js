@@ -1,7 +1,9 @@
 // r5
 class ARButton {
-	// 追加
+	// 追加	
+	static model1_display = 1;	//初期有効
 	static q = 1;	//初期有効
+	
 
 
 
@@ -41,10 +43,80 @@ class ARButton {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+				// ここに新しいbutton要素を追加
+				const button_model1 = document.createElement('button');
+				button_model1.classList.add('button_model1');
+				button_model1.textContent = 'MODEL1(有効)'; // ボタンのテキストを設定
+
+
+				// ボタンにスタイルを適用
+				button_model1.style.backgroundColor = 'white';
+				button_model1.style.color = 'black';
+				button_model1.style.padding = '10px 10px';
+				button_model1.style.border = 'none';
+				button_model1.style.borderRadius = '5px';
+				button_model1.style.cursor = 'pointer';
+				button_model1.style.position = 'absolute';
+				button_model1.style.right = '50px';
+				button_model1.style.bottom = '10px';
+
+				// ボタンをoverlayに追加
+				overlay.appendChild(button_model1);
+
+
+				// ボタンクリックイベント
+				button_model1.addEventListener('click', () => {
+					//変数値を変更する
+					if (ARButton.model1_display == 0)
+					{
+						ARButton.model1_display = 1;
+						button_model1.textContent = 'MODEL1(有効)'; // ボタンのテキストを設定
+						console.log("true ARButton.model1_display : ", ARButton.model1_display);
+						
+						// ARButton.model1_display の値が変更されたときにイベントを発火する
+						model1_display_Event();
+					}
+					else
+					{
+						ARButton.model1_display = 0;
+						console.log("else ARButton.model1_display : ", ARButton.model1_display);
+						button_test1.textContent = 'MODEL1(無効)'; // ボタンのテキストを設定
+
+						// ARButton.q の値が変更されたときにイベントを発火する
+						model1_display_Event();
+					}
+				});
+
+				// ARButton.q の値が変更されたときにイベントを発火する
+				function model1_display_Event() {
+					const m1_event = new Event('m1_event');
+					document.dispatchEvent(m1_event);
+				}
+
+
+
+
+
+
+
+
 				// ここに新しいbutton要素を追加
 				const button_test1 = document.createElement('button');
 				button_test1.classList.add('button_test1');
-				button_test1.textContent = 'ボタン (有効)'; // ボタンのテキストを設定
+				button_test1.textContent = 'MODEL2(有効)'; // ボタンのテキストを設定
 
 
 				// ボタンにスタイルを適用
@@ -66,14 +138,13 @@ class ARButton {
 
 
 
-
 				// ボタンクリックイベント
 				button_test1.addEventListener('click', () => {
 					//変数値を変更する
 					if (ARButton.q == 0)
 					{
 						ARButton.q = 1;
-						button_test1.textContent = 'ボタン (有効)'; // ボタンのテキストを設定
+						button_test1.textContent = 'MODEL2(有効)'; // ボタンのテキストを設定
 						console.log("true ARButton.q : ", ARButton.q);
 						
 						// ARButton.q の値が変更されたときにイベントを発火する
@@ -83,12 +154,15 @@ class ARButton {
 					{
 						ARButton.q = 0;
 						console.log("else ARButton.q : ", ARButton.q);
-						button_test1.textContent = 'ボタン (無効)'; // ボタンのテキストを設定
+						button_test1.textContent = 'MODEL2(無効)'; // ボタンのテキストを設定
 
 						// ARButton.q の値が変更されたときにイベントを発火する
 						fireARButtonQChangedEvent();
 					}
 				});
+
+
+
 
 
 
