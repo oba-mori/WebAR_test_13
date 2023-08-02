@@ -2,7 +2,7 @@
 class ARButton {
 	// 追加	
 	static model1_display = 1;	//初期有効
-	static model2_display = 1;	//初期有効
+	static q = 1;	//初期有効
 	
 
 
@@ -114,58 +114,62 @@ class ARButton {
 
 
 				// ここに新しいbutton要素を追加
-				const button_model2 = document.createElement('button');
-				button_model2.classList.add('button_model2');
-				button_model2.textContent = 'MODEL2(有効)'; // ボタンのテキストを設定
+				const button_test1 = document.createElement('button');
+				button_test1.classList.add('button_test1');
+				button_test1.textContent = 'MODEL2(有効)'; // ボタンのテキストを設定
 
 
 				// ボタンにスタイルを適用
-				button_model2.style.backgroundColor = 'white';
-				button_model2.style.color = 'black';
-				button_model2.style.padding = '10px 10px';
-				button_model2.style.border = 'none';
-				button_model2.style.borderRadius = '5px';
-				button_model2.style.cursor = 'pointer';
-				button_model2.style.position = 'absolute';
-				button_model2.style.right = '10px';
-				button_model2.style.bottom = '10px';
+				button_test1.style.backgroundColor = 'white';
+				button_test1.style.color = 'black';
+				button_test1.style.padding = '10px 10px';
+				button_test1.style.border = 'none';
+				button_test1.style.borderRadius = '5px';
+				button_test1.style.cursor = 'pointer';
+				button_test1.style.position = 'absolute';
+				button_test1.style.right = '10px';
+				button_test1.style.bottom = '10px';
 
 
 
 
 				// ボタンをoverlayに追加
-				overlay.appendChild(button_model2);
+				overlay.appendChild(button_test1);
 
 
 
 				// ボタンクリックイベント
-				button_model2.addEventListener('click', () => {
+				button_test1.addEventListener('click', () => {
 					//変数値を変更する
-					if (ARButton.model2_display == 0)
+					if (ARButton.q == 0)
 					{
-						ARButton.model2_display = 1;
-						button_model2.textContent = 'MODEL2(有効)'; // ボタンのテキストを設定
-						console.log("true ARButton.model2_display : ", ARButton.model2_display);
+						ARButton.q = 1;
+						button_test1.textContent = 'MODEL2(有効)'; // ボタンのテキストを設定
+						console.log("true ARButton.q : ", ARButton.q);
 						
-						// ARButton.model2_display の値が変更されたときにイベントを発火する
-						model2_display_Event();
+						// ARButton.q の値が変更されたときにイベントを発火する
+						fireARButtonQChangedEvent();
 					}
 					else
 					{
-						ARButton.model2_display = 0;
-						console.log("else ARButton.model2_display : ", ARButton.model2_display);
-						button_model2.textContent = 'MODEL2(無効)'; // ボタンのテキストを設定
+						ARButton.q = 0;
+						console.log("else ARButton.q : ", ARButton.q);
+						button_test1.textContent = 'MODEL2(無効)'; // ボタンのテキストを設定
 
-						// ARButton.model2_display の値が変更されたときにイベントを発火する
-						model2_display_Event();
+						// ARButton.q の値が変更されたときにイベントを発火する
+						fireARButtonQChangedEvent();
 					}
 				});
 
 
-				// ARButton.model2_display の値が変更されたときにイベントを発火する
-				function model2_display_Event() {
-					const m2_event = new Event('m2_event');
-					document.dispatchEvent(m2_event);
+
+
+
+
+				// ARButton.q の値が変更されたときにイベントを発火する
+				function fireARButtonQChangedEvent() {
+					const arButtonQChangedEvent = new Event('arButtonQChanged');
+					document.dispatchEvent(arButtonQChangedEvent);
 				}
 
 				
