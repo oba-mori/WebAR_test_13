@@ -220,7 +220,7 @@ class ARButton {
 				currentSession.removeEventListener( 'end', onSessionEnded );
 
 				button.textContent = 'START AR';
-				// sessionInit.domOverlay.root.style.display = 'none';
+				sessionInit.domOverlay.root.style.display = 'none';
 
 				currentSession = null;
 
@@ -325,7 +325,7 @@ class ARButton {
 		if ( 'xr' in navigator ) {
 
 			button.id = 'ARButton';
-			// button.style.display = 'none';
+			button.style.display = 'none';
 
 			stylizeElement( button );
 
