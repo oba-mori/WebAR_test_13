@@ -23,7 +23,7 @@ class ARButton {
 
 				const overlay = document.createElement( 'div' );
 				overlay.classList.add('overlay_1');
-				// overlay.style.display = 'none';
+				overlay.style.display = 'none';
 				document.body.appendChild( overlay );
 
 				// svg要素
