@@ -322,7 +322,7 @@
 					}
 				}
 
-				// カスタムイベントを監視して、ARButton.q の値に応じて条件を再評価する
+				// カスタムイベントを監視して、ARButton.model1_display の値に応じて条件を再評価する
 				document.addEventListener('m1_event', model1_event_fun);
 				
 
@@ -334,7 +334,7 @@
 				// モデル2
 				// カスタムイベントを受け取って条件を再評価する
 				function handleARButtonQChangedEvent() {
-					if (ARButton.q === 0) {
+					if (ARButton.model2_display === 0) {
 						controller.removeEventListener('select', loadModel2);
 						// toggleButton.textContent = 'ボタン (無効)';
 						console.log('確認 0');
@@ -345,7 +345,7 @@
 					}
 				}
 
-				// カスタムイベントを監視して、ARButton.q の値に応じて条件を再評価する
+				// カスタムイベントを監視して、ARButton.model2_display の値に応じて条件を再評価する
 				document.addEventListener('arButtonQChanged', handleARButtonQChangedEvent);
 				
 

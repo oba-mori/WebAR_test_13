@@ -2,7 +2,7 @@
 class ARButton {
 	// 追加	
 	static model1_display = 1;	//初期有効
-	static q = 1;	//初期有効
+	static model2_display = 1;	//初期有効
 	
 
 
@@ -141,22 +141,22 @@ class ARButton {
 				// ボタンクリックイベント
 				button_model2.addEventListener('click', () => {
 					//変数値を変更する
-					if (ARButton.q == 0)
+					if (ARButton.model2_display == 0)
 					{
-						ARButton.q = 1;
+						ARButton.model2_display = 1;
 						button_model2.textContent = 'MODEL2(有効)'; // ボタンのテキストを設定
-						console.log("true ARButton.q : ", ARButton.q);
+						console.log("true ARButton.model2_display : ", ARButton.model2_display);
 						
-						// ARButton.q の値が変更されたときにイベントを発火する
+						// ARButton.model2_display の値が変更されたときにイベントを発火する
 						fireARButtonQChangedEvent();
 					}
 					else
 					{
-						ARButton.q = 0;
-						console.log("else ARButton.q : ", ARButton.q);
+						ARButton.model2_display = 0;
+						console.log("else ARButton.model2_display : ", ARButton.model2_display);
 						button_model2.textContent = 'MODEL2(無効)'; // ボタンのテキストを設定
 
-						// ARButton.q の値が変更されたときにイベントを発火する
+						// ARButton.model2_display の値が変更されたときにイベントを発火する
 						fireARButtonQChangedEvent();
 					}
 				});
@@ -166,7 +166,7 @@ class ARButton {
 
 
 
-				// ARButton.q の値が変更されたときにイベントを発火する
+				// ARButton.model2_display の値が変更されたときにイベントを発火する
 				function fireARButtonQChangedEvent() {
 					const arButtonQChangedEvent = new Event('arButtonQChanged');
 					document.dispatchEvent(arButtonQChangedEvent);
