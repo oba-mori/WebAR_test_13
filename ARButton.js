@@ -93,7 +93,7 @@ class ARButton {
 					{
 						ARButton.model1_display = 0;
 						console.log("else ARButton.model1_display : ", ARButton.model1_display);
-						button_test1.textContent = 'MODEL1(無効)'; // ボタンのテキストを設定
+						button_model1.textContent = 'MODEL1(無効)'; // ボタンのテキストを設定
 
 						// ARButton.q の値が変更されたときにイベントを発火する
 						model1_display_Event();
