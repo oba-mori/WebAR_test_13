@@ -70,8 +70,8 @@ class ARButton {
 				button_model1.style.borderRadius = '5px';
 				button_model1.style.cursor = 'pointer';
 				button_model1.style.position = 'absolute';
-				button_model1.style.right = '100px';
-				button_model1.style.bottom = '10px';
+				button_model1.style.right = '10px';
+				button_model1.style.bottom = '60px';
 
 				// ボタンをoverlayに追加
 				overlay.appendChild(button_model1);
